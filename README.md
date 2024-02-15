@@ -4,7 +4,7 @@ Maybe it's a business trip or a vacation trip or a picnic trip, if you are trave
 
 All you have to do is specify the locations you want to go to. Weather Checker will do everything else for you with its user-friendly screens. The locations you want to go to are easily and safely determined thanks to the Google Maps infrastructure. You get real information thanks to Openweather api support. 
 
-[Project Live Link]](https://weather-controller-f28ec2f14b80.herokuapp.com)
+[Project Live Link](https://weather-controller-f28ec2f14b80.herokuapp.com)
 
 <img src="docs/images/welcome.webp" alt="Welcome Screen">
 
@@ -257,10 +257,9 @@ The following steps were then taken:
 <li>Next select your region.</li>
 <li>Click on the Create App button.</li>
 <li>Click on the Settings Tab and scroll down to Config Vars.</li>
-<li>Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.</li>
-<li>Input CREDS and the content of your Google Sheet API creds file as another config var and click add.</li>
-<li>In the next Key box enter OXFORD_API_APP_ID and add your unique ID to the value box.</li>
-<li>In the next Key box enter OXFORD_API_APP_KEY and add your unique key to the value box.</li>
+<li>Click Reveal Config Vars and enter PORT into the Key box and 8000 into the Value box and click the Add button.</li>
+<li>I added the key I created for the Openweather api with the name API_KEY.</li>
+<li>I stored the password of my account with a variable called MAIL_PASS to be able to send mail.</li>
 <li>Next, scroll down to the Buildpack section click Add Buildpack select Python and click Save Changes</li>
 <li>Repeat step 11 to add node.js. Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.</li>
 <li>Scroll to the top of the page and choose the Deploy tab.</li>
