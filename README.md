@@ -244,7 +244,7 @@ Before deploying to Heroku pip3 freeze > requirements.txt was used to add all th
 The following steps were then taken:
 
 <ol>
-<li>Log in to Heroku or create an account.</li>
+<li>Log in to [Heroku](https://id.heroku.com/login) or create an account.</li>
 <li>On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".</li>
 <li>Enter a unique and meaningful app name.</li>
 <li>Next select your region.</li>

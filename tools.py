@@ -1,4 +1,5 @@
 import re
+import os
 import requests
 import smtplib
 from location import Location
@@ -14,7 +15,7 @@ def get_name():
     
     
     while True:
-        name = input('What is your name? ')
+        name = input('What is your name? \n')
         #I use it to verify that the information entered is 
         # only alphanumeric characters
         if name.isalpha():
@@ -37,7 +38,7 @@ def get_email():
 
     while True:
         # I use regex to make sure that the user enters a real email address.
-        email = input('Please enter your email: ')
+        email = input('Please enter your email: \n')
         pattern = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Za-z]{2,})+')
         match = re.fullmatch(pattern, email)
         if match:
@@ -55,7 +56,7 @@ def show_map_hint():
 
 
     print()
-    need_help = input('Please type Y or N and press return key. If you press a letter other than Y, the system accept it as N! ')
+    need_help = input('Please type Y or N and press return key. If you press a letter other than Y, the system accept it as N! \n')
     need_help = need_help.upper()
     if need_help =='Y':
         print()
@@ -76,7 +77,7 @@ def get_valid_date():
     
     reg_pattern = r'^\d{4}-\d{2}-\d{2}$'
     while True:
-        user_input = input('Enter arrival date (YYYY-MM-DD): ')
+        user_input = input('Enter arrival date (YYYY-MM-DD): \n')
         if re.fullmatch(reg_pattern,user_input):
             return user_input
         else:
@@ -131,7 +132,7 @@ def check_latitude_longitude(type, location_no):
     Method that allows the user to enter the actual latitude and longitude
     '''
     while True:
-        data = input(f"Please paste  {location_no}. city {type} value: ")
+        data = input(f"Please paste  {location_no}. city {type} value: \n")
         if '.' not in data:
             print("Please enter a dotted float value!")
         try:
@@ -181,7 +182,8 @@ def get_weather_info(latitude,longitude,date):
     '''
 
 
-    url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&dt={date}&appid=1406b02bd8391df1c6d7b280122de5ca"
+    api_key = os.environ.get('API_KEY')
+    url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&dt={date}&appid={api_key}"
     response = requests.get(url)
     data = response.json()
     if data["cod"] == 200:
@@ -226,7 +228,7 @@ def send_mail(person):
         text = f"Location: {location.location_name}\nPostal Code: {location.postal_code}\nCountry: {location.country}\nLatitude: {location.latitude}\nLongitude: {location.longitude}\n Arrival Date: {location.arrival_date}\nWeather: {location.weather}\nCelsius: {location.celsius}°C\nKelvin: {location.kelvin}K\n-----------\n"
         body += text
 
-    password = "Demo123?"
+    password = os.environ.get('MAIL_PASS')
     receiver = person.person_email
     sender = "demo@mehmetdurmus.de"
 
