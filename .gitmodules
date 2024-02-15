@@ -1,0 +1,3 @@
+[submodule "old_project_folder"]
+	path = old_project_folder
+	url = https://github.com/mdurmus/weather-checker-old.git
