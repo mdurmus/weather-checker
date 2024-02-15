@@ -33,7 +33,7 @@ print()
 while True:
     try:
         print()
-        location_count = int(input('How many cities do you want to add? '))
+        location_count = int(input('How many cities do you want to add? \n'))
         break
     except ValueError:
         print()
@@ -48,7 +48,7 @@ person.locations = locations
 show_all_route(person.locations)
 
 
-mail_result = input('Do you want me to send this information to your email address? Y / N ').upper()
+mail_result = input('Do you want me to send this information to your email address? Y / N \n').upper()
 
 if mail_result == 'Y':
     # If user want, this method send all information to user as e-mail
