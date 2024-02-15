@@ -4,7 +4,7 @@ Maybe it's a business trip or a vacation trip or a picnic trip, if you are trave
 
 All you have to do is specify the locations you want to go to. Weather Checker will do everything else for you with its user-friendly screens. The locations you want to go to are easily and safely determined thanks to the Google Maps infrastructure. You get real information thanks to Openweather api support. 
 
-<h1 style="color:red;"> Live link here</h1>
+[Project Live Link]](https://weather-controller-f28ec2f14b80.herokuapp.com)
 
 <img src="docs/images/welcome.webp" alt="Welcome Screen">
 
@@ -155,6 +155,14 @@ With the converted date information, latitude and longitude information, queries
 
 This data is shown to the user after completing the steps for all relevant locations. If this data is to be sent as an e-mail, it is ensured that it is sent with the relevant methods in the email library and TLS security. 
 
+## Open weather map API
+
+- Open weather map API is an API for sharing the weather in a specific location. 
+- I got an API Key by creating an account through this application. 
+- I needed to pass the content of the incoming data to my location object. However, I added the API Key that I need to use for these calls to the config vars section in Heroku for security reasons. 
+- If the user enters non-valid latitude and longitude information, an error is returned with a 404 code.
+- If the API returns Code 200 "Success" the guess is accepted and the application continues.
+
 ## Testing
 
 ### PEP8 Testing
@@ -207,7 +215,7 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 [smtplib]() - SMTP/ESMTP client class.
 
-[geopy](https://pypi.org/project/geopy) - geopy is a Python client for several popular geocoding web services.
+[geopy](https://pypi.org/project/geopy) - geopy is a Python client for several popular geocoding library.
 
 [datetime]() - Date time converter
 
@@ -233,7 +241,6 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 [geeksforgeeks](https://www.geeksforgeeks.org/re-fullmatch-function-in-python/) - Regex and fullmatch usage
 
-[pyfiglet](https://pypi.org/project/pyfiglet/) I used it for the big ASCI welcome text on the input screen.
 
 ## Deployment
 
