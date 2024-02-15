@@ -214,8 +214,11 @@ All of the above tests were completed in my local terminal and also in the Herok
 ### Programs Used
 
 [GitHub](https://www.github.com) - used for version control.
+
 [Heroku](https://id.heroku.com/login) - used to deploy the live project.
+
 [Lucidchart](https://www.lucidchart.com/pages) - used to create the game flowchart
+
 [PEP8 Checker](https://www.pythonchecker.com/) - used to validate all the Python code
 
 ## Creadits
@@ -223,9 +226,13 @@ All of the above tests were completed in my local terminal and also in the Herok
 ### Resources Used
 
 [W3Schools](https://www.w3schools.com/)
+
 [Stack Overflow](https://stackoverflow.com/)
+
 [Code Academy](https://www.codecademy.com/resources/docs/python/strings/isalpha) I got help on how to use the isalpha method
+
 [geeksforgeeks](https://www.geeksforgeeks.org/re-fullmatch-function-in-python/) - Regex and fullmatch usage
+
 [pyfiglet](https://pypi.org/project/pyfiglet/) I used it for the big ASCI welcome text on the input screen.
 
 ## Deployment
