@@ -104,7 +104,7 @@ If the user thinks that the address information is incorrect, he/she can type N 
 
 ### Added Trip Date
 
-After entering the location information, the travel date must be entered. 
+After entering the location information, the travel date must be entered. ***Since I use the free version of the OpenWeather API, data is shared instantaneously, not according to the date data entered.***
 
 <img src="docs/images/date.webp" alt="Trip date">
 
