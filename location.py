@@ -2,8 +2,6 @@ class Location:
     '''
     The class object that defines the target
     '''
-
-
     def __init__(self, location_name, latitude, longitude, arrival_date,
                  weather, celsius, kelvin, postal_code, country):
 
