@@ -249,8 +249,7 @@ def send_mail(person):
         text = f"Location: {location.location_name}\nPostal Code: {location.postal_code}\nCountry: {location.country}\nLatitude: {location.latitude}\nLongitude: {location.longitude}\n Arrival Date: {location.arrival_date}\nWeather: {location.weather}\nCelsius: {location.celsius}°C\nKelvin: {location.kelvin}K\n-----------\n"
         body += text
 
-    #password = os.environ.get('MAIL_PASS')
-    password = 'Demo123?'
+    password = os.environ.get('MAIL_PASS')
     receiver = person.person_email
     sender = "demo@mehmetdurmus.de"
 
@@ -289,6 +288,7 @@ def get_single_select_cities():
             return user_input
         else:
             print("Invalid entry. Please enter separated by numbers and commas.")
+
 
 def want_report_mail(person):
     '''
