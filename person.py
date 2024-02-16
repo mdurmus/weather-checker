@@ -4,12 +4,11 @@ class Person:
     '''
 
 
-    def __init__(self,person_name,person_email):
+    def __init__(self, person_name, person_email):
         self.person_name = person_name
         self.person_email = person_email
         self.locations = []
 
 
-    def add_location_person(self,location):
+    def add_location_person(self, location):
         self.locations.append(location)
-  
