@@ -131,17 +131,24 @@ def check_latitude_longitude(type, location_no):
     '''
     Method that allows the user to enter the actual latitude and longitude
     '''
+
+
     while True:
-        data = input(f"Please paste  {location_no}. city {type} value: \n")
-        if '.' not in data:
-            print("Please enter a dotted float value!")
+        data = input(f"Please paste {location_no}. city {type} value: \n")
         try:
             data = float(data)
-            return data
         except ValueError:
-            print(f"The value you entered is not in" +  
-                  "the required format, please check and try again")
+            print("The value you entered is not in the required format, please check and try again")
+            continue
 
+        # If the input has been converted to float, it can be checked for periods and the number of characters after the period.
+        if isinstance(data, float) and '.' not in str(data) or len(str(data).split('.')[-1]) < 4:
+            print()
+            print("Please enter a dotted float value with at least 4 digits after the dot!")
+            print
+            continue
+
+        return data
 
 def get_latitude_longitude(location_no):
     '''
