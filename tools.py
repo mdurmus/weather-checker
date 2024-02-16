@@ -142,9 +142,9 @@ def check_latitude_longitude(type, location_no):
             continue
 
         # If the input has been converted to float, it can be checked for periods and the number of characters after the period.
-        if isinstance(data, float) and '.' not in str(data) or len(str(data).split('.')[-1]) < 4:
+        if isinstance(data, float) and '.' not in str(data) or len(str(data).split('.')[-1]) < 13:
             print()
-            print("Please enter a dotted float value with at least 4 digits after the dot!")
+            print("Please enter a dotted float value with at least 13 digits after the dot!")
             print
             continue
 
@@ -155,32 +155,40 @@ def get_latitude_longitude(location_no):
     Method to verify entered coordinates
     '''
 
-
     location_no +=1
     while True:
         print()
 
-        latitude = check_latitude_longitude('latitude',location_no)
+        latitude = check_latitude_longitude('latitude', location_no)
 
-        longitude = check_latitude_longitude('longitude',location_no)
+        longitude = check_latitude_longitude('longitude', location_no)
 
         print()
-        geolocator = Nominatim(user_agent = "demo")
-        location = geolocator.reverse(f"{latitude},{longitude}")
-        # I wrote the whole address on the screen to be able to verify it.
-        print(location.address)
-        post_code = location.raw['address']['postcode']
-        country = location.raw['address']['country']
-        print()
-        location_result = input('Is this correct city? Y / N ').upper()
-        if location_result == 'Y':
-            print()
-            print('Location added.')
-            return (latitude,longitude,post_code,country)
-        elif location_result == 'N':
-            print('\nPlease enter another latitude or longitude data.')
-        else:
-            print('Invalid input!')           
+        try:
+            geolocator = Nominatim(user_agent="demo")
+            location = geolocator.reverse(f"{latitude},{longitude}")
+
+            post_code = location.raw['address']['postcode']
+            country = location.raw['address']['country']
+
+            if not post_code:  # If post_code is empty or None
+                print("This is not a valid location.")
+                return (0, 0, 0, None)
+            else:
+                print(location.address)
+                location_result = input('Is this correct city? Y / N ').upper()
+                if location_result == 'Y':
+                    print()
+                    print('Location added.')
+                    return (latitude, longitude, post_code, country)
+                elif location_result == 'N':
+                    print('\nPlease enter another latitude or longitude data.')
+                else:
+                    print('Invalid input!')
+        except Exception:
+            print("The postal code did not appear in the entered latitude "+
+                  "and longitude information. Therefore, you have marked a"+
+                  "point that cannot be visited. Please check and try again.")
 
 
 def get_weather_info(latitude,longitude,date):
@@ -189,7 +197,8 @@ def get_weather_info(latitude,longitude,date):
     '''
 
 
-    api_key = os.environ.get('API_KEY')
+    #api_key = os.environ.get('API_KEY')
+    api_key = "1406b02bd8391df1c6d7b280122de5ca"
     url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&dt={date}&appid={api_key}"
     response = requests.get(url)
     data = response.json()
