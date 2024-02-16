@@ -198,8 +198,7 @@ def get_weather_info(latitude,longitude,date):
     '''
 
 
-    #api_key = os.environ.get('API_KEY')
-    api_key = "1406b02bd8391df1c6d7b280122de5ca"
+    api_key = os.environ.get('API_KEY')
     url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&dt={date}&appid={api_key}"
     response = requests.get(url)
     data = response.json()
