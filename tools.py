@@ -150,6 +150,7 @@ def check_latitude_longitude(type, location_no):
 
         return data
 
+
 def get_latitude_longitude(location_no):
     '''
     Method to verify entered coordinates
@@ -238,13 +239,19 @@ def show_all_route(locations):
 
 
 def send_mail(person):
+    '''
+    Function that sends mail to the user
+    '''
+    
+    
     subject = f"Hello {person.person_name}, report from Weather Reporter"
     body = "The locations and weather conditions you want to go to: \n "
     for location in person.locations:
         text = f"Location: {location.location_name}\nPostal Code: {location.postal_code}\nCountry: {location.country}\nLatitude: {location.latitude}\nLongitude: {location.longitude}\n Arrival Date: {location.arrival_date}\nWeather: {location.weather}\nCelsius: {location.celsius}°C\nKelvin: {location.kelvin}K\n-----------\n"
         body += text
 
-    password = os.environ.get('MAIL_PASS')
+    #password = os.environ.get('MAIL_PASS')
+    password = 'Demo123?'
     receiver = person.person_email
     sender = "demo@mehmetdurmus.de"
 
@@ -258,3 +265,55 @@ def send_mail(person):
            smtp_server.sendmail(sender,receiver, msg.as_string())
 
     print('Weather report sended your email, please check your mailbox...')
+
+
+def get_single_valid_date(city_name):
+    
+    '''
+    User must input valid date string
+    '''
+    
+    
+    reg_pattern = r'^\d{4}-\d{2}-\d{2}$'
+    while True:
+        user_input = input(f'Enter arrival date for {city_name} (YYYY-MM-DD): \n')
+        if re.fullmatch(reg_pattern,user_input):
+            return user_input
+        else:
+            print('Invalid date format. Please enter in \'YYYY-MM-DD\' format.')
+            
+
+def get_single_select_cities():
+    while True:
+        user_input = input('To select more than one city, separate with a comma. Ex: 1,2 \n')
+        if re.match(r'^\d+(,\d+)*$', user_input):
+            return user_input
+        else:
+            print("Invalid entry. Please enter separated by numbers and commas.")
+
+def want_report_mail(person):
+    '''
+    Method asking the user to email the information if they want to.
+    ''' 
+    
+    mail_result = input('Do you want me to send this information to your email address? Y / N \n').upper()
+
+    if mail_result == 'Y':
+        # If user want, this method send all information to user as e-mail
+        send_mail(person)
+    else:
+        print('See you again!')
+        
+def fill_locations():
+    '''
+    Location list for the user to select from the list
+    '''
+    
+    
+    locations = []
+    locations.append(Location('Istanbul','41.023225258475556','28.97335911064253',None,None,None,None,'34000','Türkiye'))
+    locations.append(Location('Paris','48.85995487235792','2.3006829806185007',None,None,None,None,'75000','France'))
+    locations.append(Location('London','51.50800525549958','-0.10723656557849508',None,None,None,None,'E1 6AN','United Kingdom'))
+    locations.append(Location('Rome','41.90216460494821','12.453805075696728',None,None,None,None,'00042','Rome'))
+    locations.append(Location('Bangkok','13.768320888413012','100.51358940258531',None,None,None,None,'10100','Tailand'))
+    return locations

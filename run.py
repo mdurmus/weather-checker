@@ -1,6 +1,8 @@
 import pyfiglet
 from person import Person
-from tools import get_name, get_email, show_map_hint 
+from location import Location
+from tools import get_single_valid_date, get_single_select_cities, convert_date_time, want_report_mail
+from tools import get_name, get_email, show_map_hint, get_weather_info, kelvin_to_celcius_convert, fill_locations
 from tools import get_location_information, show_all_route,send_mail
 welcome_text = 'Weather Checker!'
 
@@ -20,40 +22,99 @@ print()
 # I create person object and fill data
 person = Person(name,mail)
 
-print(f'Yes your personal data is ready. I\'ll help you plan your trip or vacation. But we need to agree on some things. Firstly, you need to give me the latitude and longitude of your destination. Can you do that or should I give you a hint?')
+print(f'Yes your personal data is ready. I\'ll help '+
+      'you plan your trip or vacation. But we need '+
+      'to agree on some things. Firstly, you need to '+
+      'give me the latitude and longitude of your '+
+      'destination. Can you do that or should '+
+      'I give you a hint?')
 
 # Method that shows the user how to use maps.
 show_map_hint()
 
 print('Ok now can continue...')
 print()
+print('Do you want to select the location from '+
+      'the list or do you want to enter it yourself?')
+print()
+select = input('1. I select from list \n2. I can enter manually \n')
 
 
+
+def manual_enter_location():
+    
 # I want the user to enter only numeric character.
-while True:
-    try:
-        print()
-        location_count = int(input('How many cities do you want to add? \n'))
-        break
-    except ValueError:
-        print()
-        print('Please enter only numeric value!')
-        print()
+    while True:
+        try:
+            print()
+            location_count = int(input('How many cities do you want to add? \n'))
+            break
+        except ValueError:
+            print()
+            print('Please enter only numeric value!')
+            print()
 
-# Method that asks for the number of cities specified by the user one by one
-locations = get_location_information(location_count)
-person.locations = locations
+    # Method that asks for the number of cities specified by the user one by one
+    locations = get_location_information(location_count)
+    person.locations = locations
 
-# Method that shows all the cities entered by the user with all relevant information.
-show_all_route(person.locations)
+    # Method that shows all the cities entered by the user with all relevant information.
+    show_all_route(person.locations)
 
+    want_report_mail(person)
 
-mail_result = input('Do you want me to send this information to your email address? Y / N \n').upper()
+    
 
-if mail_result == 'Y':
-    # If user want, this method send all information to user as e-mail
-    send_mail(person)
-else:
-    print('See you again!')
+def select_from_list():
+    locations = fill_locations()
+   
+    print()
+    print('1 - Istanbul, Türkiye')
+    print('2 - Paris, France')
+    print('3 - London, United Kingdom')
+    print('4 - Rome, Italy')
+    print('5 - Bangkok, Thailand')
+    print()
+    print('Which city or cities would you like to go to? ')
+    print()
+    selected_cities = get_single_select_cities()
+    selected_indexes = selected_cities.split(',')  # I created a list of the user's input separated by commas
+    selected_locations = []
 
+    for index in selected_indexes:
+        selected_locations.append(locations[int(index) - 1])  # I fill selected locations
+    
+    print()
+    
+    # I need to get the departure dates from the user
+    for item in selected_locations:
+       arrival_date =  get_single_valid_date(item.location_name)
+       item.arrival_date = arrival_date
+    
+    print()
+    
+    # updating weather conditions for locations.
+    for item in selected_locations:
+        converted_date = convert_date_time(item.arrival_date)
+        weather_data = get_weather_info(item.latitude,item.longitude,converted_date)
+        item.weather = weather_data['description']
+        item.kelvin = weather_data['temperature']
+        item.celsius = kelvin_to_celcius_convert(item.kelvin)
 
+    # I must update person object.
+    person.locations = selected_locations
+    
+    # Listing location informations
+    show_all_route(person.locations)
+    
+    want_report_mail(person)
+    
+    
+    
+    
+
+if select == "1":
+   select_from_list()
+elif select == "2":
+     manual_enter_location()
+    
