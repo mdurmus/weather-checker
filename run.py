@@ -50,8 +50,7 @@ def manual_enter_location():
     while True:
         try:
             print()
-            location_count = int(input(f'How many cities do you want
-                                       + 'to add? \n'))
+            location_count = int(input(f'How many cities do you want to add? \n'))
             break
         except ValueError:
             print()
