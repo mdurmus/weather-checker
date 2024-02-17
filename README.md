@@ -264,7 +264,7 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 [PEP8 Checker](https://www.pythonchecker.com/) - used to validate all the Python code
 
-## Creadits
+## Credits
 
 ### Resources Used
 
