@@ -13,7 +13,7 @@ The live link can be found here - [Weather Checker](https://weather-controller-f
 <ul>
 <li>The user must have an email address to receive reports.</li>
 <li>The user needs to set the targets (latitude and longitude).</li>
-<li>The user must specify the date of departure.</li>
+<li>The user must specify the date of arrival.</li>
 </ul>
 
 <h2>Site Owners Goal</h2>
@@ -45,7 +45,7 @@ Starting to design my project with a flowchart has helped me a lot. First, these
 
 ### Welcome Section
 
-When the user enters the application they are greeted with a very simple page welcoming them to the game and asking them for their name. The welcome text was created using Pyfiglet which takes ASCII text and renders it into ASCII art fonts.
+When the user enters the application, they are greeted with a very simple page asking for their name. The welcome text was generated using Pyfiglet, which takes ASCII text and converts it into ASCII art fonts.
 
 <img src="docs/images/intro.webp" alt="Introduction">
 
@@ -121,6 +121,8 @@ As many locations as the user enters, it is requested to enter latitude and long
 <img src="docs/images/lat_long_enter.webp" alt="Latitude longitude enter">
 
 The entered coordinate information is queried with the api service of Geopy service and the registered address information is displayed to the user.
+
+*** The latitude and longitude information entered by the user must be a float value and must be 13 digits after the . character to ensure data consistency. ***
 
 <img src="docs/images/lat_long_validation.webp" alt="Latitude longitude validation">
 
