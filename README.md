@@ -262,7 +262,7 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 [Lucidchart](https://www.lucidchart.com/pages) - used to create the game flowchart
 
-[PEP8 Checker](https://www.pythonchecker.com/) - used to validate all the Python code
+[PEP8 Checker](https://pep8ci.herokuapp.com/#) - used to validate all the Python code
 
 ## Credits
 
