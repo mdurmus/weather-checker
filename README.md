@@ -91,6 +91,10 @@ The user can enter location information in two different ways:
 
 The user can enter a single city or multiple cities separated by commas. In this screen, the comma value is also checked with a regex structure to check the values entered by the user.
 
+<img src="docs/images/selected_city.webp" alt="Enter Date">
+
+For each selected city, a date of arrival must be entered. 
+
 #### Manual Enter
 
 *** The latitude and longitude information entered by the user will be checked by the geopy api. If there is no registered postal code for the latitude and longitude entered, the user will be asked to enter a new data. ***
