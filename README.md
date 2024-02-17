@@ -95,6 +95,15 @@ The user can enter a single city or multiple cities separated by commas. In this
 
 For each selected city, a date of arrival must be entered. 
 
+<img src="docs/images/list_summary.webp" alt="Summary Screen">
+
+After entering the date value, the screen summarizing the weather conditions of all selected cities will appear. 
+
+On this screen the user can also choose whether or not to have the information sent to them by email. I will not ask for this for now.
+
+<img src="docs/images/list_finish.webp" alt="Finish">
+
+
 #### Manual Enter
 
 *** The latitude and longitude information entered by the user will be checked by the geopy api. If there is no registered postal code for the latitude and longitude entered, the user will be asked to enter a new data. ***
