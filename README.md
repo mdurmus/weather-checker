@@ -82,12 +82,14 @@ If the user asks for help, an explanation of how to use the Google Maps service 
 <img src="docs/images/select_style.webp" alt="Select Input">
 
 The user can enter location information in two different ways:
-1 - Select the registered city(s) from the list.
-2 - Manually enter latitude and longitude information.
+- Select the registered city(s) from the list.
+- Manually enter latitude and longitude information.
 
 #### Select from List
 
+<img src="docs/images/selection_list.webp" alt="Select List">
 
+The user can enter a single city or multiple cities separated by commas. In this screen, the comma value is also checked with a regex structure to check the values entered by the user.
 
 #### Manual Enter
 
