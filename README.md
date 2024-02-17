@@ -279,7 +279,7 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 ## Deployment
 
-The site was deployed via Heroku, and the live link can be found here: Word-Py
+The site was deployed via Heroku, and the live link can be found here: [Weather Checker](https://weather-controller-f28ec2f14b80.herokuapp.com)
 
 Before deploying to Heroku pip3 freeze > requirements.txt was used to add all the dependencies required to the requirements.txt file. This is required for the game to run on Heroku.
 
@@ -311,9 +311,3 @@ The site is now live and operational.
 The Code Institute slack community for their quick responses and very helpful feedback!
 
 Many thanks to the user [AliOKeeffe](https://github.com/AliOKeeffe/word-Py?tab=readme-ov-file), whose resources I have used extensively during the preparation of this file.
-
-
-enlem ve boylamlarda minimum karakter problemi.
- if isinstance(data, float) and '.' not in str(data) or len(str(data).split('.')[-1]) < 4:
-
-Bu kod satiri ile dönüsünmler yaparak olayi cözdüm
