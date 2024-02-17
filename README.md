@@ -106,7 +106,7 @@ On this screen the user can also choose whether or not to have the information s
 
 #### Manual Enter
 
-*** The latitude and longitude information entered by the user will be checked by the geopy api. If there is no registered postal code for the latitude and longitude entered, the user will be asked to enter a new data. ***
+***The latitude and longitude information entered by the user will be checked by the geopy api. If there is no registered postal code for the latitude and longitude entered, the user will be asked to enter a new data.***
 
 If the user chooses the manual login method then the screen will look like the one below. 
 
