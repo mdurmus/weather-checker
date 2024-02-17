@@ -79,7 +79,21 @@ If the user asks for help, an explanation of how to use the Google Maps service 
 
 ### Add location
 
-If the user does not ask for help, the program will ask how many cities they would like to receive a report about.
+<img src="docs/images/select_style.webp" alt="Select Input">
+
+The user can enter location information in two different ways:
+1 - Select the registered city(s) from the list.
+2 - Manually enter latitude and longitude information.
+
+#### Select from List
+
+
+
+#### Manual Enter
+
+*** The latitude and longitude information entered by the user will be checked by the geopy api. If there is no registered postal code for the latitude and longitude entered, the user will be asked to enter a new data. ***
+
+If the user chooses the manual login method then the screen will look like the one below. 
 
 <img src="docs/images/no_help.webp" alt="Maps Tip">
 
