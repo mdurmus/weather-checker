@@ -192,8 +192,7 @@ def get_weather_info(latitude, longitude, date):
     '''
     Method to retrieve weather information.
     '''
-    # api_key = os.environ.get('API_KEY')
-    api_key='1406b02bd8391df1c6d7b280122de5ca'
+    api_key = os.environ.get('API_KEY')
     url = f'http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&dt={date}&appid={api_key}'
     response = requests.get(url)
     data = response.json()
@@ -239,8 +238,8 @@ def send_mail(person):
     for location in person.locations:
         text = f"Location: {location.location_name}\nPostal Code: {location.postal_code}\nCountry: {location.country}\nLatitude: {location.latitude}\nLongitude: {location.longitude}\n Arrival Date: {location.arrival_date}\nWeather: {location.weather}\nCelsius: {location.celsius}°C\nKelvin: {location.kelvin}K\n-----------\n"
     body += text
-    password = 'Demo123?'
-    # password = os.environ.get('MAIL_PASS')
+    
+    password = os.environ.get('MAIL_PASS')
     receiver = person.person_email
     sender = "demo@mehmetdurmus.de"
     msg = MIMEText(body)
@@ -273,9 +272,12 @@ def get_single_valid_date(city_name):
 
 
 def get_single_select_cities():
+    '''
+    Method that checks the syntax of the cities selected by the user with regex.
+    '''
     while True:
         user_input = input('To select more than one city, separate with a' +
-                           'comma. Ex: 1,2 \n')
+                           ' comma. Ex: 1,2 \n')
         if re.match(r'^\d+(,\d+)*$', user_input):
             return user_input
         else:
