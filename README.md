@@ -180,6 +180,8 @@ When the program runs, it takes the user's name and email information. With this
 
 It inquires whether the user has information about the latitude and longitude of the locations to which they may be traveling. If necessary, it provides information.
 
+The user can choose their travel destinations in two different ways. Either by selecting a city from a list or by manually entering latitude and longitude information.
+
 In the next step, the user is asked how many locations they want to check and is asked to enter the information (latitude and longitude) according to the answer given. Once these two pieces of information are entered, a method object is used to create a Location object with the information from the Geopy API, assign values to it and show it to the user to verify that the location is where they want to go. If the user confirms the information, the location is added to an array. 
 
 Date information to go to the location is requested. Since Openweather's API requests date information in Unix date format, the data is converted with datetime library. 
