@@ -2,6 +2,7 @@ import re
 import os
 import requests
 import smtplib
+import env
 from location import Location
 from email.mime.text import MIMEText
 from geopy.geocoders import Nominatim
@@ -199,7 +200,6 @@ def get_weather_info(latitude, longitude, date):
     if data["cod"] == 200:
         weather_description = data["weather"][0]["description"]
         temperature = data["main"]["temp"]
-    # I only got two pieces of information, but there is actually much more
         return {
             "description": weather_description,
             "temperature": temperature
