@@ -2,7 +2,7 @@ import re
 import os
 import requests
 import smtplib
-import env
+from . import env
 from location import Location
 from email.mime.text import MIMEText
 from geopy.geocoders import Nominatim
