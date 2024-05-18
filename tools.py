@@ -5,6 +5,7 @@ import env
 print('After import env')
 import requests
 import smtplib
+
 from location import Location
 from email.mime.text import MIMEText
 from geopy.geocoders import Nominatim
