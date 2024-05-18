@@ -4,7 +4,7 @@ Maybe it's a business trip or a vacation trip or a picnic trip, if you are trave
 
 All you have to do is specify the locations you want to go to. Weather Checker will do everything else for you with its user-friendly screens. The locations you want to go to are easily and safely determined thanks to the Google Maps infrastructure. You get real information thanks to Openweather api support. 
 
-The live link can be found here - [Weather Checker](https://weather-controller-f28ec2f14b80.herokuapp.com)
+The live link can be found here - [Weather Checker](https://weather-checker-66347ac17651.herokuapp.com/)
 
 <img src="docs/images/welcome.webp" alt="Welcome Screen">
 
@@ -279,7 +279,7 @@ All of the above tests were completed in my local terminal and also in the Herok
 
 ## Deployment
 
-The site was deployed via Heroku, and the live link can be found here: [Weather Checker](https://weather-controller-f28ec2f14b80.herokuapp.com)
+The site was deployed via Heroku, and the live link can be found here: [Weather Checker](https://weather-checker-66347ac17651.herokuapp.com/)
 
 Before deploying to Heroku pip3 freeze > requirements.txt was used to add all the dependencies required to the requirements.txt file. This is required for the game to run on Heroku.
 
