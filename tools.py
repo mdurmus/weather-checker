@@ -1,6 +1,5 @@
 import re
 import os
-import env
 import requests
 import smtplib
 from location import Location
