@@ -1,12 +1,19 @@
 import re
 import os
+print('Before import env')
+import env
+print('After import env')
 import requests
 import smtplib
-from . import env
 from location import Location
 from email.mime.text import MIMEText
 from geopy.geocoders import Nominatim
 from datetime import datetime
+
+
+print('Weather api: ', os.getenv('API_KEY'))
+print('Mail pass: ',os.getenv('MAIL_PASS'))
+
 
 
 def get_name():
